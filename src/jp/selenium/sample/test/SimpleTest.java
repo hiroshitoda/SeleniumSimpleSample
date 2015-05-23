@@ -23,7 +23,7 @@ public class SimpleTest
     public void setUp() throws Exception
     {
         driver = new FirefoxDriver();
-        baseUrl = "http://example.selenium.jp/";
+        baseUrl = "http://example.selenium.jp";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
@@ -37,7 +37,7 @@ public class SimpleTest
         driver.findElement(By.id("agree_and_goto_next")).click();
         driver.findElement(By.id("returnto_index")).click();
         Files.write(
-                FileSystems.getDefault().getPath(""),
+                FileSystems.getDefault().getPath("screenshot01.png"),
                 ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)
                 );
     }
