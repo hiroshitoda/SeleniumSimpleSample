@@ -26,9 +26,9 @@ public class SimpleTest
     public void setUp() throws Exception
     {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        // capabilities.setBrowserName("firefox");
         FirefoxProfile firefoxProfile = new FirefoxProfile();
         capabilities.setCapability(FirefoxDriver.PROFILE, firefoxProfile);
+        capabilities.setBrowserName("firefox");
         driver = new RemoteWebDriver(capabilities);
         baseUrl = "http://example.selenium.jp";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
