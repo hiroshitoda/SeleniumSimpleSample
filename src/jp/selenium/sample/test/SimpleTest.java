@@ -10,6 +10,8 @@ import static org.junit.Assert.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class SimpleTest
@@ -22,7 +24,9 @@ public class SimpleTest
     @Before
     public void setUp() throws Exception
     {
-        driver = new FirefoxDriver();
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("firefox");
+        driver = new RemoteWebDriver(capabilities);
         baseUrl = "http://example.selenium.jp";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
